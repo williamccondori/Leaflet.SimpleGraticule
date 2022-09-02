@@ -10,8 +10,15 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
 		integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
 		crossorigin="" />
+	<link rel="stylesheet" href="./L.SimpleGraticule.css">
 	<!-- CUSTOM STYLES -->
 	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
 		#map {
 			height: 100vh;
 		}
@@ -26,18 +33,17 @@
 	<script src="./L.SimpleGraticule.js"></script>
 	<script>
 		// Initialize the map
-		const map = L.map('map').setView([0, 0], 2);
+		const map = L.map('map').setView([0, 0], 5);
 
 		// Add the base layer 
 		L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			, noWrap: true
 		}).addTo(map);
 
 		// Set the plugin options
 		const options = {
-			interval: 20,
 			showshowOriginLabel: true,
-			redraw: 'move'
 		};
 
 		// Add the plugin to the map
